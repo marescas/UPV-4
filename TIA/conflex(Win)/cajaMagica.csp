@@ -1,0 +1,59 @@
+##### c4q.csp = magic VOX problem
+
+##########################################
+###   Requetes, Parametres et Options  ###
+##########################################
+ 
+\alpha = 0.1;
+\filtering : f ;
+\search : rfla ,
+	all_solutions
+#	best_solution
+#	first_solutions 5
+;
+\static_labeling_order  :
+	smallest_domain 
+#	greatest_degree
+#	smallest_domain_by_degree
+;
+#\dynamic_labeling_order :
+#	smallest_domain 
+#	smallest_domain_by_degree
+#
+;
+\verbose : 
+	display_solutions 
+#	display_csp
+#	display_filtering
+#	display_search
+#       display_intervals
+;
+
+##############################
+###       VARIABLES        ###
+############################## 
+
+\vi : Z11,Z12,Z13,Z21,Z22,Z23,Z31,Z32,Z33 1..9 ;
+
+##############################
+###      CONTRAINTES       ###
+############################## 
+\cim : ct1 , <>(Z11,Z12,Z13,Z21,Z22,Z23,Z31,Z32,Z33);
+
+\ci : rd1 , Z11 + Z12 + Z13 =Z13+Z22+Z31;
+
+\ci : rd2 , Z11 + Z12 + Z13 = Z11+Z22+Z33;
+
+\ci : rd3 , Z11 + Z12 + Z13 = Z11+Z12+Z13;
+
+\ci : rd4 , Z11 + Z12 + Z13 = Z23+Z22+Z21;
+
+\ci : rd5 , Z11 + Z12 + Z13 = Z33 + Z32 + Z31;
+
+\ci : rd6 , Z11 + Z21 + Z31 = Z12 + Z22 + Z32;
+
+\ci : rd7 , Z11 + Z21 + Z31 = Z13 + Z23 + Z33;
+
+
+
+

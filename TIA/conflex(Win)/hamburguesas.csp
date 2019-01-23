@@ -1,0 +1,93 @@
+##### c4q.csp = koxes
+
+##########################################
+###   Requetes, Parametres et Options  ###
+##########################################
+ 
+\alpha = 0.8; #Alfa interesante,satis minima
+\filtering : f ;
+\search : rfla ,
+	all_solutions
+#	best_solution
+#	first_solutions 5
+;
+\static_labeling_order  :
+	smallest_domain 
+#	greatest_degree
+#	smallest_domain_by_degree
+;
+#\dynamic_labeling_order :
+#	smallest_domain 
+#	smallest_domain_by_degree
+#
+;
+\verbose : 
+	display_solutions 
+#	display_csp
+#	display_filtering
+#	display_search
+#       display_intervals
+;
+
+#Ejer: 4 sols
+
+##############################
+###       VARIABLES        ###
+############################## 
+
+\vi : PAN,BURGUER 1..5;
+\vi : QUESO,CEBOLLA,BEICON 0...3;
+
+##############################
+###      CONTRAINTES       ###
+############################## 
+
+\ci: panes, 
+		PAN = BURGUER+1;
+
+\doc: doc1
+\ci : q, QUESO>=1;
+\or
+\ci : c, CEBOLLA>=1;
+\or
+\ci : b, BEICON>=1;
+;
+
+#3.2
+
+\ce : hs BURGUER,
+		1 (0.2)
+		2 (0.4)
+		3 (0.8)
+		4 (0.9)
+		5 (1.0);
+		
+\ce : qs QUESO,
+		0 (0.1)
+		1 (0.2)
+		2 (0.4)
+		3 (0.8);
+		
+\ce : cs CEBOLLA,
+		0 (0.1)
+		1 (0.2)
+		2 (0.4)
+		3 (0.8);
+
+\ce : bs BEICON,
+		0 (0.1)
+		1 (0.2)
+		2 (0.4)
+		3 (0.8);
+		
+\ce : cs	QUESO	BURGUER,
+			1		1	(0.4)
+			2		2	(0.6)
+			3		3	(0.8);
+			
+\ci: quesos, QUESO>=1;
+		
+
+
+
+

@@ -1,0 +1,132 @@
+##### c4q.csp = koxes
+
+##########################################
+###   Requetes, Parametres et Options  ###
+##########################################
+ 
+\alpha = 0.1;
+\filtering : f ;
+\search : rfla ,
+	all_solutions
+#	best_solution
+#	first_solutions 5
+;
+\static_labeling_order  :
+	smallest_domain 
+#	greatest_degree
+#	smallest_domain_by_degree
+;
+#\dynamic_labeling_order :
+#	smallest_domain 
+#	smallest_domain_by_degree
+#
+;
+\verbose : 
+	display_solutions 
+#	display_csp
+#	display_filtering
+#	display_search
+#       display_intervals
+;
+
+#Ejer: 4 sols
+
+##############################
+###       VARIABLES        ###
+############################## 
+
+\vi : M1,M2,M3,M4,M5 0..3 ;
+
+##############################
+###      CONTRAINTES       ###
+############################## 
+\doc : doc1
+\ci : rd1 , M1 != 1;
+\or
+\ci: rd21 , M2 = 1;
+\or
+\ci: rd22, M2 = 2;;
+
+\doc : doc2
+\ci : rd311 , M2 != 1;
+\or
+\ci: rd312 , M1 = 1;;
+
+\doc : doc3
+\ci : rd321 , M2 != 2;
+\or
+\ci: rd322 , M1 = 1;;
+#Segunda restriccion del primero
+\doc : doc4
+\ci : rd4 , M1 != 2;
+\or
+\ci: rd41 , M3 = 0;
+\or
+\ci: rd42, M5 = 3;;
+
+\doc : doc5
+\ci : rd3 , M3 != 0;
+\or
+\ci: rd31 , M1 = 2;;
+
+\doc : doc6
+\ci : rd32 , M5 != 3;
+\or
+\ci: rd321 , M1 = 2;;
+
+#Regla 2, restriccion 1
+
+\doc : doc7
+\ci : rd7 , M2 != 1;
+\or
+\ci: rd71 , M1 = 1;
+\or
+\ci: rd72, M1 = 2;
+\or
+\ci : rd73 , M5 = 0;;
+
+\doc : doc8
+\ci : rd8 , M1 != 1;
+\or
+\ci: rd81 , M2 = 1;;
+
+\doc : doc9
+\ci : rd9 , M1 != 2;
+\or
+\ci: rd91 , M2 = 1;;
+
+\doc : doc10
+\ci : rd10 , M5 != 0;
+\or
+\ci: rd101 , M2 = 1;;
+
+#Regla 2, restriccion 2
+
+\doc : doc11
+\ci : rd11 , M2 != 2;
+\or
+\ci: rd111 , M3 = 3;
+\or
+\ci: rd112, M4 = 3;;
+
+\doc : doc12
+\ci : rd12 , M3 != 3;
+\or
+\ci: rd121 , M2 = 2;;
+
+\doc : doc13
+\ci : rd13 , M4 != 3;
+\or
+\ci: rd131 , M2 = 2;;
+
+#Regla 3
+
+\ci : rd14 , M1 != M2;
+
+\cim: rd141 , <>(M3,M4,M5);;
+
+
+
+
+
+
